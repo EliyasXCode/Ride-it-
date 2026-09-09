@@ -1,0 +1,15 @@
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  body {
+    @apply bg-charcoal-50 text-charcoal-900 antialiased selection:bg-brand-500 selection:text-white;
+  }
+}
