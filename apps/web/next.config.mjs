@@ -1,7 +1,19 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@rideflow/shared'],
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@rideflow/shared': path.resolve(__dirname, 'src/shared/index.ts'),
+    };
+    return config;
+  },
   async rewrites() {
     const apiTarget = process.env.API_INTERNAL_URL || 'http://localhost:5000';
     return [
