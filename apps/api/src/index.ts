@@ -116,7 +116,7 @@ async function bootstrap() {
   ScheduledRideWorker.start();
 
   // Start listening
-  server.listen(config.port, () => {
+  server.listen(config.port, '0.0.0.0', () => {
     console.log(`====================================================`);
     console.log(`  🚀 RideFlow API running on http://localhost:${config.port}`);
     console.log(`  ⚡ Web Sockets active on port ${config.port}`);
